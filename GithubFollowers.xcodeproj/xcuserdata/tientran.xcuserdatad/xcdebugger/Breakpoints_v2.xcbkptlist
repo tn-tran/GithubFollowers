@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "49B63526-D2FD-4D10-900A-1F1FEBC9437D"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EAEBFA80-0506-4533-A395-461EED648351"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowers/Screens/FollowerListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "addButtonTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B9BAD87-723F-47AE-8998-467E50CBD8F8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowers/Screens/FollowerListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "addButtonTapped()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0B9BAD87-723F-47AE-8998-467E50CBD8F8 - ca413fe5df09f90f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;GithubFollowers.User, GithubFollowers.GFError&gt;) -&gt; () in GithubFollowers.FollowerListVC.addButtonTapped() -&gt; ()"
+                  moduleName = "GithubFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tientran/Desktop/iOS/GithubFollowers/GithubFollowers/Screens/FollowerListVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "652">
+               </Location>
+               <Location
+                  uuid = "0B9BAD87-723F-47AE-8998-467E50CBD8F8 - 2d513385991ff083"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;GithubFollowers.GFError&gt;) -&gt; () in closure #1 (Swift.Result&lt;GithubFollowers.User, GithubFollowers.GFError&gt;) -&gt; () in GithubFollowers.FollowerListVC.addButtonTapped() -&gt; ()"
+                  moduleName = "GithubFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tientran/Desktop/iOS/GithubFollowers/GithubFollowers/Screens/FollowerListVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
