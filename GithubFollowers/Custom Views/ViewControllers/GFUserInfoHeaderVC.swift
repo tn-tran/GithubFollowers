@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GFUserInfoHeaderVC: UIViewController {
+class GFUserInfoHeaderVC: GFDataLoadingVC {
 	
 	let avatarImageView = GFAvatarImageView(frame: .zero)
 	let usernameLabel = GFTitleLabel(textAlignment: .left, fontSize: 34)
@@ -45,15 +45,25 @@ class GFUserInfoHeaderVC: UIViewController {
 	}
 	
 	func configureUIElements() {
-		self.avatarImageView.downloadImage(from: self.user.avatarUrl)
+		self.downloadAvatarImage()
+		
 		self.usernameLabel.text = self.user.login
 		self.nameLabel.text = self.user.name ?? ""
 		self.locationLabel.text = self.user.location ?? "No Location"
 		self.bioLabel.text = self.user.bio ?? "No Bio"
 		self.bioLabel.numberOfLines = 3
 		
-		self.locationImageView.image = UIImage(systemName: SFSymbols.location)
+		self.locationImageView.image =  SFSymbols.location
 		self.locationImageView.tintColor = .secondaryLabel
+	}
+	
+	func downloadAvatarImage() {
+		NetworkManager.shared.downloadImage(from: self.user.avatarUrl) { [weak self] (image) in
+			guard let self = self else { return }
+			DispatchQueue.main.async {
+				self.avatarImageView.image = image
+			}
+		}
 	}
 	
 	func layoutUI() {
