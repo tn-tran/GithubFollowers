@@ -35,17 +35,15 @@ class GFAlertVC: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.backgroundColor = UIColor.black.withAlphaComponent(0.75)
+		self.view.addSubviews(self.containerView, self.titleLabel, self.actionButton, self.messageLabel)
+		
 		self.configureContainerView()
 		self.configureTitleLabel()
 		self.configureActionButton()
 		self.configureMessageLabel()
-		
 	}
 	
 	func configureContainerView() {
-		self.view.addSubview(self.containerView)
-
-		
 		NSLayoutConstraint.activate([
 			self.containerView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
 			self.containerView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -55,7 +53,6 @@ class GFAlertVC: UIViewController {
 	}
 	
 	func configureTitleLabel() {
-		self.containerView.addSubview(self.titleLabel)
 		self.titleLabel.text  = self.alertTitle ?? "Something went wrong"
 		
 		NSLayoutConstraint.activate([
@@ -67,7 +64,6 @@ class GFAlertVC: UIViewController {
 	}
 	
 	func configureActionButton() {
-		self.containerView.addSubview(self.actionButton)
 		self.actionButton.setTitle(self.buttonTitle ?? "Ok", for: .normal)
 		self.actionButton.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
 		
@@ -80,7 +76,6 @@ class GFAlertVC: UIViewController {
 	}
 	
 	func configureMessageLabel() {
-		self.containerView.addSubview(self.messageLabel)
 		self.messageLabel.text = self.message ?? "Unable to complete request"
 		self.messageLabel.numberOfLines = 4
 		
@@ -91,6 +86,7 @@ class GFAlertVC: UIViewController {
 			self.messageLabel.bottomAnchor.constraint(equalTo: self.actionButton.topAnchor, constant: -12)
 		])
 	}
+	
 	@objc func dismissVC() {
 		self.dismiss(animated: true)
 	}

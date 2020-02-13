@@ -8,13 +8,15 @@
 
 import UIKit
 
-// singleton
 class NetworkManager {
+	
 	static let shared = NetworkManager()
 	private let baseURL = "https://api.github.com/users/"
 	let cache = NSCache<NSString, UIImage>()
 	
-	private init() { }
+	private init() {
+		
+	}
 	
 	func getFollowers(for username: String, page: Int, completed: @escaping (Result<[Follower], GFError>) -> Void) {
 		let endpoint = self.baseURL + "\(username)/followers?per_page=100&page=\(page)"
@@ -44,7 +46,6 @@ class NetworkManager {
 				let followers = try decoder.decode([Follower].self, from: data)
 				completed(.success(followers))
 			} catch {
-				//				completed(nil, error.localizedDescription)
 				completed(.failure(.invalidData))
 			}
 		}
@@ -85,7 +86,6 @@ class NetworkManager {
 				completed(.failure(.invalidData))
 			}
 		}
-		
 		task.resume()
 	}
 	
@@ -111,12 +111,10 @@ class NetworkManager {
 					completed(nil)
 					return
 			}
-			
 			self.cache.setObject(image, forKey: cacheKey)
 			
 			completed(image)
 		}
-		
 		task.resume()
 	}
 }

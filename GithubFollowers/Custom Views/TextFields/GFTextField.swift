@@ -9,6 +9,7 @@
 import UIKit
 
 class GFTextField: UITextField {
+	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.configure()
@@ -37,6 +38,5 @@ class GFTextField: UITextField {
 		self.returnKeyType = .go
 		self.clearButtonMode = .whileEditing
 		self.placeholder = "Enter a username"
-		
 	}
 }

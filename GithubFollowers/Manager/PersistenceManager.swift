@@ -24,23 +24,18 @@ enum PersistenceManager {
 		
 		self.retrieveFavorites { (result) in
 			switch result {
-			case .success(let favorites):
-				var retrievedFavorites = favorites
-				
+			case .success(var favorites):
 				switch actionType {
 				case .add:
-					guard !retrievedFavorites.contains(favorite) else { completed(.alreadyInFavorites)
+					guard !favorites.contains(favorite) else { completed(.alreadyInFavorites)
 						return
 					}
-					retrievedFavorites.append(favorite)
-					
+					favorites.append(favorite)
 					break
 				case .remove:
-					retrievedFavorites.removeAll {$0.login == favorite.login}
+					favorites.removeAll {$0.login == favorite.login}
 				}
-				
-				completed(save(favorites: retrievedFavorites))
-				
+				completed(save(favorites: favorites))
 				break
 			case .failure(let error):
 				completed(error)
@@ -53,7 +48,6 @@ enum PersistenceManager {
 			completed(.success([]))
 			return
 		}
-		
 		do {
 			let decoder = JSONDecoder()
 			let favorites = try decoder.decode([Follower].self, from: favoritesData)
@@ -65,12 +59,12 @@ enum PersistenceManager {
 	}
 	
 	static func save(favorites: [Follower]) -> GFError? {
-		
 		do {
 			let encoder = JSONEncoder()
 			let encodedFavorites = try encoder.encode(favorites)
 			
 			self.defaults.set(encodedFavorites, forKey: Keys.favorites)
+			
 			return nil
 		} catch {
 			return .unableToFavorite

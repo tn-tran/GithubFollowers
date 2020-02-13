@@ -30,22 +30,13 @@ class GFUserInfoHeaderVC: GFDataLoadingVC {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.addSubviews()
+		self.view.addSubviews(self.avatarImageView,self.usernameLabel,self.nameLabel, self.locationImageView, self.locationLabel, self.bioLabel )
 		self.layoutUI()
 		self.configureUIElements()
 	}
 	
-	func addSubviews() {
-		self.view.addSubview(self.avatarImageView)
-		self.view.addSubview(self.usernameLabel)
-		self.view.addSubview(self.nameLabel)
-		self.view.addSubview(self.locationImageView)
-		self.view.addSubview(self.locationLabel)
-		self.view.addSubview(self.bioLabel)
-	}
-	
 	func configureUIElements() {
-		self.downloadAvatarImage()
+		self.avatarImageView.downloadImage(fromURL: user.avatarUrl)
 		
 		self.usernameLabel.text = self.user.login
 		self.nameLabel.text = self.user.name ?? ""
@@ -55,15 +46,6 @@ class GFUserInfoHeaderVC: GFDataLoadingVC {
 		
 		self.locationImageView.image =  SFSymbols.location
 		self.locationImageView.tintColor = .secondaryLabel
-	}
-	
-	func downloadAvatarImage() {
-		NetworkManager.shared.downloadImage(from: self.user.avatarUrl) { [weak self] (image) in
-			guard let self = self else { return }
-			DispatchQueue.main.async {
-				self.avatarImageView.image = image
-			}
-		}
 	}
 	
 	func layoutUI() {
@@ -101,7 +83,7 @@ class GFUserInfoHeaderVC: GFDataLoadingVC {
 			self.bioLabel.topAnchor.constraint(equalTo: self.avatarImageView.bottomAnchor, constant: textImagePadding),
 			self.bioLabel.leadingAnchor.constraint(equalTo: self.avatarImageView.leadingAnchor),
 			self.bioLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-			self.bioLabel.heightAnchor.constraint(equalToConstant: 60)
+			self.bioLabel.heightAnchor.constraint(equalToConstant: 90)
 		])
 	}
 }

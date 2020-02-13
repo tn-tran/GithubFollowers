@@ -9,8 +9,8 @@
 import UIKit
 
 class GFDataLoadingVC: UIViewController {
-
- 	fileprivate var containerView: UIView!
+	
+	fileprivate var containerView: UIView!
 	
 	func showLoadingView() {
 		self.containerView = UIView(frame: view.bounds)
@@ -48,5 +48,4 @@ class GFDataLoadingVC: UIViewController {
 		emptyStateView.frame = view.bounds
 		view.addSubview(emptyStateView)
 	}
-
 }
